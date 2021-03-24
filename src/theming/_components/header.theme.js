@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// HEADER
 const HeaderStyle = styled.header`
   width: 100%;
   height: 150px;
@@ -12,6 +11,7 @@ const HeaderStyle = styled.header`
   flex-direction: column;
   background: ${({ theme }) => theme.colors.main};
 `;
+
 export const WrapperHeader = styled.div`
   flex: 1;
   position: relative;
@@ -28,7 +28,6 @@ export const WrapperHeader = styled.div`
 
 export const Header = ({ children }) => <HeaderStyle>{children}</HeaderStyle>;
 
-// LOGO
 export const Logo = styled.div`
   flex: 1;
   h1 {
@@ -37,7 +36,6 @@ export const Logo = styled.div`
   }
 `;
 
-// MENU
 const MenuStyle = styled.ul`
   flex: 1;
   display: flex;
@@ -50,11 +48,13 @@ const MenuStyle = styled.ul`
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
   border-top: 1px solid ${({ theme }) => theme.colors.gray};
 `;
+
 const ItemMenu = styled.li`
   line-height: 45px;
   position: relative;
   margin: 0 1rem;
 `;
+
 export const MenuHeader = ({ children }) => {
   const subItems = (
     <MenuStyle>

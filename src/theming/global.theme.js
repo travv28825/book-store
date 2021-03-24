@@ -1,16 +1,15 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
 
-// articles
-
 const UsernameStyle = styled.span`
   margin-left: 0.3rem;
   color: cornflowerblue;
 `;
+
 export const Username = ({ username }) => (
   <UsernameStyle>#{username}</UsernameStyle>
 );
-// button animations
+
 const scaleout = keyframes`
 0% {
   -webkit-transform: scale(0);
@@ -22,6 +21,7 @@ const scaleout = keyframes`
   opacity: 0;
 }
 `;
+
 const cubemove = keyframes`
   25% {
     -webkit-transform: translateX(10px) rotate(-90deg);
@@ -44,7 +44,7 @@ const cubemove = keyframes`
             transform: rotate(-360deg);
   }
 `;
-// buttons
+
 const StyledButton = styled.button`
   padding: 0 1rem;
   height: 2.125rem;
@@ -191,6 +191,7 @@ const StyledButton = styled.button`
 export const Button = ({ children, ...rest }) => (
   <StyledButton {...rest}>{children}</StyledButton>
 );
+
 const SpanStyle = styled.span`
   ${({ btninput }) =>
     btninput &&
@@ -231,10 +232,11 @@ const SpanStyle = styled.span`
       transition: all 0.3s linear;
     `}
 `;
+
 export const Span = ({ children, ...args }) => (
   <SpanStyle {...args}>{children}</SpanStyle>
 );
-// INPUT CONTROL
+
 const InputControlStyle = styled.div`
   display: inline-block;
   min-height: 2.125rem;
@@ -272,10 +274,11 @@ const InputControlStyle = styled.div`
     outline: none;
   }
 `;
+
 export const InputControl = ({ children }) => (
   <InputControlStyle>{children}</InputControlStyle>
 );
-// INPUT
+
 const InputStyle = styled.input`
   line-height: normal;
   margin: 0;
@@ -351,6 +354,7 @@ const InputStyle = styled.input`
       border-color: ${({ theme }) => theme.colors.yellow};
     `}
 `;
+
 const TextareaStyle = styled.textarea`
   overflow: auto;
   vertical-align: top;
@@ -358,17 +362,19 @@ const TextareaStyle = styled.textarea`
   font-size: 100%;
   vertical-align: middle;
 `;
+
 const SelectStyle = styled.select`
   margin: 0;
   font-size: 100%;
   vertical-align: middle;
 `;
+
 export const Input = ({ ...args }) => <InputStyle {...args} />;
 export const Textarea = ({ ...args }) => <TextareaStyle {...args} />;
 export const Select = ({ children, ...args }) => (
   <SelectStyle {...args}>{children}</SelectStyle>
 );
-// pagination
+
 export const PaginationWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -378,7 +384,7 @@ export const PaginationWrapper = styled.div`
     else return "flex-start";
   }};
 `;
-// link style
+
 const LinkItemStyle = styled.a`
   display: block;
   line-height: inherit;
@@ -410,6 +416,7 @@ const LinkItemStyle = styled.a`
       }
     `}
 `;
+
 export const LinkItem = ({ children, ...args }) => (
   <LinkItemStyle {...args}>{children}</LinkItemStyle>
 );

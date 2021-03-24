@@ -1,1 +1,0 @@
-export * from './User.component.jsx';

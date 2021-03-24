@@ -7,4 +7,5 @@ const LayoutStyle = styled.main`
   height: 100%;
   border: 0;
 `;
+
 export const Layout = ({ children }) => <LayoutStyle>{children}</LayoutStyle>;

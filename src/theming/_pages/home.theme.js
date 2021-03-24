@@ -8,6 +8,7 @@ const WallStyle = styled.div`
   overflow-y: auto;
   display:flex;
 `;
+
 const FooterStyle = styled.footer`
   width: 100%;
   padding: 60px 0;

@@ -42,7 +42,7 @@ function LoginPage() {
         <GroupForm
           change={handleChange}
           val={data.password}
-          name='password'
+          name="password"
           type="password"
           title="Password"
         />

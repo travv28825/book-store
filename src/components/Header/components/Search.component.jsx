@@ -1,27 +1,23 @@
 import React, { useState } from "react";
+
 import { Input, InputControl, Span, Button } from "../../../theming";
-import { useFile } from "../../../providers/File";
 
 const SearchForm = () => {
   const [find, setFind] = useState("");
-  const { files, setLastFiles } = useFile();
 
-  function change(event) {
+  const handleChange = (event) => {
     const { value } = event.target;
     setFind(value);
-  }
-  function Find() {
-    const Items = files.filter(
-      (target) => target.name.toLowerCase().indexOf(find.toLowerCase()) !== -1
-    );
-    console.log("BUSCAR::  ", Items);
-    setLastFiles(Items);
+  };
+
+  const searchFile = ()=>{
+    console.log(find);
   }
 
   return (
     <InputControl>
-      <Input value={find} onChange={change} />
-      <Button btninput onClick={Find}>
+      <Input value={find} onChange={handleChange} />
+      <Button btninput onClick={searchFile}>
         <Span className="mif-search"></Span>
       </Button>
     </InputControl>

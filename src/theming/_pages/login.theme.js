@@ -6,7 +6,7 @@ const login = ({className,children})=>(
         {children}
     </section>
 );
-// span
+
 const SpanTitle = styled.span`
   -webkit-transform: scale(0.83333) translateY(-10px);
   transform: scale(0.83333) translateY(-10px);
@@ -29,7 +29,7 @@ const SpanTitle = styled.span`
   user-select: none;
   white-space: nowrap;
 `;
-// inputs
+
 const ipt = ({ className, change, val, name, type }) => (
   <input
     className={className}
@@ -41,6 +41,7 @@ const ipt = ({ className, change, val, name, type }) => (
     id={val}
   />
 );
+
 const InputContent = styled(ipt)`
   font-size: 12px;
   padding: 14px 0 2px 8px !important;
@@ -54,6 +55,7 @@ const InputContent = styled(ipt)`
   padding: 9px 0 7px 8px;
   text-overflow: ellipsis;
 `;
+
 const group = ({ className, children, title, ...rest }) => (
     <div className={className}>
       <LabelInput {...rest}>
@@ -62,13 +64,14 @@ const group = ({ className, children, title, ...rest }) => (
       </LabelInput>
     </div>
   );
-// label
+
 const label = ({ className, children, val, ...rest }) => (
   <label htmlFor={val} className={className}>
     {children}
     <InputContent val={val} {...rest} />
   </label>
 );
+
 const LabelInput = styled(label)`
   display: flex;
   height: 36px;
@@ -96,6 +99,7 @@ position: relative;
 width: 100%;
 margin: 10px 5px;
 `;
+
 export const LoginWrapper = styled(login)`
     width: auto;
     padding-top: 50px;

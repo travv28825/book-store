@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.4;
     font-family: "IBM Plex Sans", sans-serif;
   }
-  
   *,
   *::before,
   *::after {
@@ -55,4 +54,5 @@ const GlobalStyle = createGlobalStyle`
   }
 
 `;
+
 export default GlobalStyle;

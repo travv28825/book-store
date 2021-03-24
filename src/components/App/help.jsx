@@ -58,7 +58,7 @@ export const Wrapper = styled.div`
     transform: rotate(-90deg);
     transform-origin: 0 100%;
   }
-  button{
+  button {
     margin: 0.3rem;
   }
 `;
@@ -69,7 +69,7 @@ export const Palete = styled.div`
   padding: 20px 21px;
   margin-bottom: 10px;
   border: 1px solid transparent;
-  position:relative;
+  position: relative;
 
   ${({ b }) =>
     b &&
@@ -226,7 +226,7 @@ export const WrapperPalete = styled.div`
   max-width: 120px;
   float: left;
   margin: 5px;
-  position:relative;
+  position: relative;
 `;
 export const buttons =
   "<Button>Something!</Button>\n<Button primary>Primary</Button>\n<Button info>Info</Button>\n<Button success>Success</Button>\n<Button danger>Danger</Button>\n<Button warning>Warning</Button>\n<Button loading_pulse>Download NOW</Button>\n<Button loading_cube>Loading</Button>";
@@ -253,7 +253,7 @@ export const Help = () => (
     </Wrapper>
     {/* INPUTS */}
     <Wrapper data-text="inputs">
-    <h1>Inputs</h1>
+      <h1>Inputs</h1>
       <InputControl>
         <Input />
       </InputControl>
@@ -288,7 +288,6 @@ export const Help = () => (
           Your login
         </Span>
       </InputControl>
-     
     </Wrapper>
     <Wrapper data-text="select">
       <InputControl select>

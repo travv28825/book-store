@@ -6,7 +6,6 @@ import Private from "../Private";
 import HomePage from "../../pages/Home";
 import LoginPage from "../../pages/Login";
 import NotFound from "../../pages/NotFound";
-import SecretPage from "../../pages/Secret";
 
 import { Layout } from "../../theming";
 import { Help } from "./help";
@@ -25,9 +24,6 @@ const App = () => {
             </Route>
             <Private exact path="/">
               <HomePage />
-            </Private>
-            <Private exact path="/secret">
-              <SecretPage />
             </Private>
             <Route path="*">
               <NotFound />

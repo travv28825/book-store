@@ -27,6 +27,7 @@ export const FolderList = styled.div`
   background: #f9fafc;
   border-right: 1px solid #e9eef9;
 `;
+
 export const ItemList = styled.div`
   width: 75%;
   display: flex;
@@ -41,6 +42,7 @@ export const Title = styled.h2`
   text-overflow: ellipsis;
   font-family: ${({ theme }) => theme.fontFamily.sohne};
 `;
+
 export const LinkTitle = styled(Link)`
   color: rgb(47, 47, 47);
   transition: 100ms ease-in;
@@ -52,6 +54,7 @@ export const LinkTitle = styled(Link)`
     width: 80px;
   }
 `;
+
 export const Time = styled.time`
   margin-top: 5px;
   font-family: monospace;

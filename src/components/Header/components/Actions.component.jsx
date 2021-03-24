@@ -1,7 +1,6 @@
 import React from "react";
 
 import { useHistory } from "react-router";
-
 import { MenuHeader, LinkItem } from "../../../theming";
 
 const Actions = () => {
