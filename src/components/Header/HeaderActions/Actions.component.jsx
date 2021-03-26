@@ -3,7 +3,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import { MenuHeader, LinkItem } from "../../../theming";
 
-const Actions = () => {
+export const Actions = () => {
   const history = useHistory();
 
   return (
@@ -35,5 +35,3 @@ const Actions = () => {
     </MenuHeader>
   );
 };
-
-export default Actions;

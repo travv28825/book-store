@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "../../components/Header";
 import { Wall, Footer } from "../../theming";
-import Spiner from "../../components/Spiner/Spinner";
+import Spiner from "../../components/Spiner/Spinner.component";
 
 const  HomePage = () =>(
     <>

@@ -10,26 +10,26 @@ import { Layout } from "../../theming";
 import { Help } from "./help";
 
 const App = () => (
-    <BrowserRouter>
-      <AuthProvider>
-        <Layout>
-          <Switch>
-            <Route exact path="/help">
-              <Help />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Private exact path="/">
-              <HomePage />
-            </Private>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-        </Layout>
-      </AuthProvider>
-    </BrowserRouter>
-  );
+  <BrowserRouter>
+    <AuthProvider>
+      <Layout>
+        <Switch>
+          <Route exact path="/help">
+            <Help />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+          <Private exact path="/">
+            <HomePage />
+          </Private>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </Layout>
+    </AuthProvider>
+  </BrowserRouter>
+);
 
 export default App;

@@ -2,9 +2,9 @@
   "name": "book-store",
   "version": "0.1.0",
   "private": true,
-  "author":"Asney Hidalgo Pamero <asney28825@gmail.com>",
+  "author": "Asney Hidalgo Pamero <asney28825@gmail.com>",
   "homepage": "http://localhost:3000/",
-  "description":"It is a minimal idea on how to improve your React skills, we'll focus on creating a file manager.",
+  "description": "It is a minimal idea on how to improve your React skills, we'll focus on creating a file manager.",
   "dependencies": {
     "@react-pdf/renderer": "^2.0.0-beta.6",
     "babel-eslint": "^10.1.0",

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Input, InputControl, Span, Button } from "../../../theming";
 
-const SearchForm = () => {
+export const SearchForm = () => {
   const [find, setFind] = useState("");
 
   const handleChange = (event) => {
@@ -10,9 +10,9 @@ const SearchForm = () => {
     setFind(value);
   };
 
-  const searchFile = ()=>{
+  const searchFile = () => {
     console.log(find);
-  }
+  };
 
   return (
     <InputControl>
@@ -23,5 +23,3 @@ const SearchForm = () => {
     </InputControl>
   );
 };
-
-export default SearchForm;
