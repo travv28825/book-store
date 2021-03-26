@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
-
 import { useAuth } from "../../providers/Auth";
 import {
   LoginWrapper,
@@ -8,40 +7,41 @@ import {
   Button,
   PaginationWrapper,
 } from "../../theming";
+const initialCredentials = {
+  username: "",
+  password: "",
+};
 
-function LoginPage() {
+const LoginPage = () => {
   const { login } = useAuth();
   const history = useHistory();
-  const [data, setData] = useState({
-    username: "",
-    password: "",
-  });
+  const [credentials, setCredentials] = useState(initialCredentials);
 
-  function authenticate(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    login(data).then(() => {
+    login(credentials).then(() => {
       history.push("/");
     });
-  }
+  };
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setData({ ...data, [name]: value });
-  }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setCredentials({ ...credentials, [name]: value });
+  };
 
   return (
     <LoginWrapper>
-      <form onSubmit={authenticate}>
+      <form onSubmit={handleSubmit}>
         <h1>Welcome to my dream!</h1>
         <GroupForm
           change={handleChange}
-          val={data.username}
+          val={credentials.username}
           name="username"
           title="Username, phone number or email"
         />
         <GroupForm
           change={handleChange}
-          val={data.password}
+          val={credentials.password}
           name="password"
           type="password"
           title="Password"
@@ -57,6 +57,6 @@ function LoginPage() {
       </form>
     </LoginWrapper>
   );
-}
+};
 
 export default LoginPage;

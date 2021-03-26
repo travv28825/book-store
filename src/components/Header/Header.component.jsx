@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Actions, SearchForm } from "./HeaderActions";
+import { Navigation, SearchForm } from "./HeaderActions";
 import { Header, WrapperHeader, Logo } from "../../theming";
 
 const HeaderComponent = () => (
@@ -11,7 +11,7 @@ const HeaderComponent = () => (
       </Logo>
       <SearchForm />
     </WrapperHeader>
-    <Actions />
+    <Navigation />
   </Header>
 );
 

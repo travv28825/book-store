@@ -8,11 +8,14 @@ const WallStyle = styled.div`
   overflow-y: auto;
   display: flex;
 `;
+
 const FooterStyle = styled.footer`
   width: 100%;
   padding: 60px 0;
   background-color: ${({ theme }) => theme.colors.darkgray};
   display: block;
 `;
+
 export const Wall = ({ children }) => <WallStyle>{children}</WallStyle>;
+
 export const Footer = ({ children }) => <FooterStyle>{children}</FooterStyle>;

@@ -5,6 +5,7 @@ const UsernameStyle = styled.span`
   margin-left: 0.3rem;
   color: cornflowerblue;
 `;
+
 const scaleout = keyframes`
 0% {
   -webkit-transform: scale(0);
@@ -16,6 +17,7 @@ const scaleout = keyframes`
   opacity: 0;
 }
 `;
+
 const cubemove = keyframes`
   25% {
     -webkit-transform: translateX(10px) rotate(-90deg);
@@ -38,7 +40,214 @@ const cubemove = keyframes`
             transform: rotate(-360deg);
   }
 `;
-const StyledButton = styled.button`
+
+const SpanStyle = styled.span`
+  ${({ btninput }) =>
+    btninput &&
+    css`
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+      line-height: 1;
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      left: 4px;
+      z-index: 2;
+      color: #999999;
+    `}
+  ${({ placeholder }) =>
+    placeholder &&
+    css`
+      font-size: 1rem;
+      color: #c8c8c8;
+      position: absolute;
+      top: 1.2rem;
+      left: 0;
+      z-index: 1;
+      opacity: 1;
+      transition: all 0.3s linear;
+    `}
+  ${({ label }) =>
+    label &&
+    css`
+      position: absolute;
+      display: block;
+      z-index: 1;
+      color: #1d1d1d;
+      opacity: 0;
+      top: 16px;
+      left: 0;
+      transition: all 0.3s linear;
+    `}
+`;
+
+const InputControlStyle = styled.div`
+  display: inline-block;
+  min-height: 2.125rem;
+  height: 2.125rem;
+  position: relative;
+  vertical-align: middle;
+  margin: 0.325rem 0;
+  line-height: 1;
+
+  textarea {
+    position: relative;
+    min-height: 6.25rem;
+    font-family: "Segoe UI", "Open Sans", sans-serif, serif;
+  }
+  input:focus ~ button,
+  input:hover ~ button {
+    border-color: #787878;
+  }
+  input,
+  textarea,
+  select {
+    appearance: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  input:hover,
+  textarea:hover,
+  select:hover {
+    border-color: #787878;
+  }
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #787878;
+    outline: none;
+  }
+`;
+
+const InputStyle = styled.input`
+  line-height: normal;
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+  border: 1px #d9d9d9 solid;
+  padding: 0.3125rem;
+  z-index: 0;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: #ebebe4;
+    `}
+  ${({ btnleft }) =>
+    btnleft &&
+    css`
+      padding-left: 30px;
+    `}
+  ${({ modern }) =>
+    modern &&
+    css`
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      right: 0;
+      bottom: 0.5rem;
+      border: 0;
+      border-bottom: 2px #dddddd solid;
+      background-color: transparent;
+      outline: none;
+      font-size: 1rem;
+      padding-bottom: 0.5rem;
+      padding-left: 0;
+      width: 100%;
+      z-index: 2;
+      height: 1.75rem;
+
+      &:focus {
+        border-bottom-color: #1d1d1d;
+      }
+      &:focus ~ .placeholder {
+        opacity: 0;
+        transform: translateX(200px);
+        transition: all 0.3s linear;
+      }
+      &:focus ~ .label {
+        opacity: 1;
+        transform: translateY(-18px);
+        transition: all 0.3s linear;
+      }
+    `}
+
+      
+
+  ${({ primary }) =>
+    primary &&
+    css`
+      border-color: ${({ theme }) => theme.colors.blue};
+    `}
+  ${({ success }) =>
+    success &&
+    css`
+      border-color: ${({ theme }) => theme.colors.green};
+    `}
+  ${({ danger }) =>
+    danger &&
+    css`
+      border-color: ${({ theme }) => theme.colors.red};
+    `}
+  ${({ warning }) =>
+    warning &&
+    css`
+      border-color: ${({ theme }) => theme.colors.yellow};
+    `}
+`;
+
+const TextareaStyle = styled.textarea`
+  overflow: auto;
+  vertical-align: top;
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+`;
+
+const SelectStyle = styled.select`
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+`;
+
+const LinkItemStyle = styled.a`
+  display: block;
+  line-height: inherit;
+  text-align: center;
+  width: auto;
+  padding: 3px 12px;
+  position: relative;
+  cursor: pointer;
+  font-family: initial;
+  font-size: ${({ theme }) => theme.fontSizes.large};
+  transition: color 0.4s ease 0s;
+  color: ${({ theme }) => theme.colors.text};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.blue};
+  }
+  ${({ important }) =>
+    important &&
+    css`
+      border: 1px solid ${({ theme }) => theme.colors.lightgray};
+      font-family: ${({ theme }) => theme.fontFamily.sohne};
+      font-weight: 400;
+      font-size: ${({ theme }) => theme.fontSizes.medium};
+      color: rgba(117, 117, 117, 1);
+
+      border-radius: 2px;
+      &:hover {
+        border-color: ${({ theme }) => theme.colors.gray};
+      }
+    `}
+`;
+
+export const Username = ({ username }) => (
+  <UsernameStyle>#{username}</UsernameStyle>
+);
+
+export const Button = styled.button`
   padding: 0 1rem;
   height: 2.125rem;
   text-align: center;
@@ -171,8 +380,8 @@ const StyledButton = styled.button`
   &:focus {
     outline: 0;
   }
-  ${({ btninput }) =>
-    btninput &&
+  ${({ button_in_input }) =>
+    button_in_input &&
     css`
       position: absolute;
       top: 0;
@@ -181,219 +390,23 @@ const StyledButton = styled.button`
       margin: 0;
     `}
 `;
-const SpanStyle = styled.span`
-  ${({ btninput }) =>
-    btninput &&
-    css`
-      width: 24px;
-      height: 24px;
-      font-size: 24px;
-      line-height: 1;
-      position: absolute;
-      top: 50%;
-      margin-top: -12px;
-      left: 4px;
-      z-index: 2;
-      color: #999999;
-    `}
-  ${({ placeholder }) =>
-    placeholder &&
-    css`
-      font-size: 1rem;
-      color: #c8c8c8;
-      position: absolute;
-      top: 1.2rem;
-      left: 0;
-      z-index: 1;
-      opacity: 1;
-      transition: all 0.3s linear;
-    `}
-  ${({ label }) =>
-    label &&
-    css`
-      position: absolute;
-      display: block;
-      z-index: 1;
-      color: #1d1d1d;
-      opacity: 0;
-      top: 16px;
-      left: 0;
-      transition: all 0.3s linear;
-    `}
-`;
-const InputControlStyle = styled.div`
-  display: inline-block;
-  min-height: 2.125rem;
-  height: 2.125rem;
-  position: relative;
-  vertical-align: middle;
-  margin: 0.325rem 0;
-  line-height: 1;
 
-  textarea {
-    position: relative;
-    min-height: 6.25rem;
-    font-family: "Segoe UI", "Open Sans", sans-serif, serif;
-  }
-  input:focus ~ button,
-  input:hover ~ button {
-    border-color: #787878;
-  }
-  input,
-  textarea,
-  select {
-    appearance: none;
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  input:hover,
-  textarea:hover,
-  select:hover {
-    border-color: #787878;
-  }
-  input:focus,
-  textarea:focus,
-  select:focus {
-    border-color: #787878;
-    outline: none;
-  }
-`;
-const InputStyle = styled.input`
-  line-height: normal;
-  margin: 0;
-  font-size: 100%;
-  vertical-align: middle;
-  border: 1px #d9d9d9 solid;
-  padding: 0.3125rem;
-  z-index: 0;
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: #ebebe4;
-    `}
-  ${({ btnleft }) =>
-    btnleft &&
-    css`
-      padding-left: 30px;
-    `}
-  ${({ modern }) =>
-    modern &&
-    css`
-      position: absolute;
-      top: 1rem;
-      left: 0;
-      right: 0;
-      bottom: 0.5rem;
-      border: 0;
-      border-bottom: 2px #dddddd solid;
-      background-color: transparent;
-      outline: none;
-      font-size: 1rem;
-      padding-bottom: 0.5rem;
-      padding-left: 0;
-      width: 100%;
-      z-index: 2;
-      height: 1.75rem;
-
-      &:focus {
-        border-bottom-color: #1d1d1d;
-      }
-      &:focus ~ .placeholder {
-        opacity: 0;
-        transform: translateX(200px);
-        transition: all 0.3s linear;
-      }
-      &:focus ~ .label {
-        opacity: 1;
-        transform: translateY(-18px);
-        transition: all 0.3s linear;
-      }
-    `}
-
-      
-
-  ${({ primary }) =>
-    primary &&
-    css`
-      border-color: ${({ theme }) => theme.colors.blue};
-    `}
-  ${({ success }) =>
-    success &&
-    css`
-      border-color: ${({ theme }) => theme.colors.green};
-    `}
-  ${({ danger }) =>
-    danger &&
-    css`
-      border-color: ${({ theme }) => theme.colors.red};
-    `}
-  ${({ warning }) =>
-    warning &&
-    css`
-      border-color: ${({ theme }) => theme.colors.yellow};
-    `}
-`;
-const TextareaStyle = styled.textarea`
-  overflow: auto;
-  vertical-align: top;
-  margin: 0;
-  font-size: 100%;
-  vertical-align: middle;
-`;
-const SelectStyle = styled.select`
-  margin: 0;
-  font-size: 100%;
-  vertical-align: middle;
-`;
-const LinkItemStyle = styled.a`
-  display: block;
-  line-height: inherit;
-  text-align: center;
-  width: auto;
-  padding: 3px 12px;
-  position: relative;
-  cursor: pointer;
-  font-family: initial;
-  font-size: ${({ theme }) => theme.fontSizes.large};
-  transition: color 0.4s ease 0s;
-  color: ${({ theme }) => theme.colors.text};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.blue};
-  }
-  ${({ important }) =>
-    important &&
-    css`
-      border: 1px solid ${({ theme }) => theme.colors.lightgray};
-      font-family: ${({ theme }) => theme.fontFamily.sohne};
-      font-weight: 400;
-      font-size: ${({ theme }) => theme.fontSizes.medium};
-      color: rgba(117, 117, 117, 1);
-
-      border-radius: 2px;
-      &:hover {
-        border-color: ${({ theme }) => theme.colors.gray};
-      }
-    `}
-`;
-export const Username = ({ username }) => (
-  <UsernameStyle>#{username}</UsernameStyle>
-);
-export const Button = ({ children, ...rest }) => (
-  <StyledButton {...rest}>{children}</StyledButton>
-);
 export const Span = ({ children, ...args }) => (
   <SpanStyle {...args}>{children}</SpanStyle>
 );
+
 export const InputControl = ({ children }) => (
   <InputControlStyle>{children}</InputControlStyle>
 );
+
 export const Input = ({ ...args }) => <InputStyle {...args} />;
+
 export const Textarea = ({ ...args }) => <TextareaStyle {...args} />;
+
 export const Select = ({ children, ...args }) => (
   <SelectStyle {...args}>{children}</SelectStyle>
 );
+
 export const PaginationWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -403,6 +416,7 @@ export const PaginationWrapper = styled.div`
     else return "flex-start";
   }};
 `;
+
 export const LinkItem = ({ children, ...args }) => (
   <LinkItemStyle {...args}>{children}</LinkItemStyle>
 );
