@@ -1,6 +1,4 @@
 # dependencies
 /node_modules
+#configuration file of IDE
 /.vscode
-
-.package-lock.json
-
