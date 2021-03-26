@@ -11,16 +11,16 @@ import {
 
 export const Code = styled.div`
   background-color: #eeeeee;
-  border: 0 !important;
-  border-width: 1px !important;
-  border-color: #eeeeee !important;
-  border-left: 8px #555555 solid !important;
+  border: 0;
+  border-width: 1px;
+  border-color: #eeeeee;
+  border-left: 8px #555555 solid;
   padding: 10px;
   overflow: auto;
 
   p {
-    background-color: white !important;
-    list-style-type: decimal !important;
+    background-color: white;
+    list-style-type: decimal;
     padding-left: 1em;
     border-bottom: 1px #eee solid;
     font-size: 1rem;

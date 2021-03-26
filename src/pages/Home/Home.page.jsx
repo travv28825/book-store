@@ -10,7 +10,7 @@ const  HomePage = () =>(
       <Wall>
         <Spiner />
       </Wall>
-      <Footer></Footer>
+      <Footer/>
     </>
   );
 
