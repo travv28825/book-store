@@ -4,8 +4,7 @@ import Header from "../../components/Header";
 import { Wall, Footer } from "../../theming";
 import Spiner from "../../components/Spiner/Spinner";
 
-function HomePage() {
-  return (
+const  HomePage = () =>(
     <>
       <Header />
       <Wall>
@@ -14,6 +13,5 @@ function HomePage() {
       <Footer></Footer>
     </>
   );
-}
 
 export default HomePage;

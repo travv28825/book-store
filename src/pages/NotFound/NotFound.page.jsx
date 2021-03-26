@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./NotFound.styles.css";
 
-function NotFoundPage() {
-  return (
+const NotFoundPage = ()=>(
     <section className="not-found">
       <Link to="/" className="home-link">
         home
@@ -12,6 +11,5 @@ function NotFoundPage() {
       <img src="404.gif" alt="page not found" />
     </section>
   );
-}
 
 export default NotFoundPage;

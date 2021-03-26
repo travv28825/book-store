@@ -6,12 +6,10 @@ import Private from "../Private";
 import HomePage from "../../pages/Home";
 import LoginPage from "../../pages/Login";
 import NotFound from "../../pages/NotFound";
-
 import { Layout } from "../../theming";
 import { Help } from "./help";
 
-const App = () => {
-  return (
+const App = () => (
     <BrowserRouter>
       <AuthProvider>
         <Layout>
@@ -33,6 +31,5 @@ const App = () => {
       </AuthProvider>
     </BrowserRouter>
   );
-};
 
 export default App;
