@@ -11,7 +11,23 @@ const HeaderStyle = styled.header`
   flex-direction: column;
   background: ${({ theme }) => theme.colors.main};
 `;
-
+const MenuStyle = styled.ul`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 24px;
+  white-space: nowrap;
+  width: 90%;
+  margin-left: 5%;
+  height: 100%;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
+  border-top: 1px solid ${({ theme }) => theme.colors.gray};
+`;
+const ItemMenu = styled.li`
+  line-height: 45px;
+  position: relative;
+  margin: 0 1rem;
+`;
 export const WrapperHeader = styled.div`
   flex: 1;
   position: relative;
@@ -25,9 +41,7 @@ export const WrapperHeader = styled.div`
     position: relative;
   }
 `;
-
 export const Header = ({ children }) => <HeaderStyle>{children}</HeaderStyle>;
-
 export const Logo = styled.div`
   flex: 1;
   h1 {
@@ -35,26 +49,6 @@ export const Logo = styled.div`
     color: ${({ theme }) => theme.colors.darkred};
   }
 `;
-
-const MenuStyle = styled.ul`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  padding: 0.5rem 24px;
-  white-space: nowrap;
-  width: 90%;
-  margin-left: 5%;
-  height: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
-  border-top: 1px solid ${({ theme }) => theme.colors.gray};
-`;
-
-const ItemMenu = styled.li`
-  line-height: 45px;
-  position: relative;
-  margin: 0 1rem;
-`;
-
 export const MenuHeader = ({ children }) => {
   const subItems = (
     <MenuStyle>

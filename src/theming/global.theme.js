@@ -5,11 +5,6 @@ const UsernameStyle = styled.span`
   margin-left: 0.3rem;
   color: cornflowerblue;
 `;
-
-export const Username = ({ username }) => (
-  <UsernameStyle>#{username}</UsernameStyle>
-);
-
 const scaleout = keyframes`
 0% {
   -webkit-transform: scale(0);
@@ -21,7 +16,6 @@ const scaleout = keyframes`
   opacity: 0;
 }
 `;
-
 const cubemove = keyframes`
   25% {
     -webkit-transform: translateX(10px) rotate(-90deg);
@@ -44,7 +38,6 @@ const cubemove = keyframes`
             transform: rotate(-360deg);
   }
 `;
-
 const StyledButton = styled.button`
   padding: 0 1rem;
   height: 2.125rem;
@@ -188,10 +181,6 @@ const StyledButton = styled.button`
       margin: 0;
     `}
 `;
-export const Button = ({ children, ...rest }) => (
-  <StyledButton {...rest}>{children}</StyledButton>
-);
-
 const SpanStyle = styled.span`
   ${({ btninput }) =>
     btninput &&
@@ -232,11 +221,6 @@ const SpanStyle = styled.span`
       transition: all 0.3s linear;
     `}
 `;
-
-export const Span = ({ children, ...args }) => (
-  <SpanStyle {...args}>{children}</SpanStyle>
-);
-
 const InputControlStyle = styled.div`
   display: inline-block;
   min-height: 2.125rem;
@@ -251,7 +235,8 @@ const InputControlStyle = styled.div`
     min-height: 6.25rem;
     font-family: "Segoe UI", "Open Sans", sans-serif, serif;
   }
-  input:focus ~ button,input:hover ~ button{
+  input:focus ~ button,
+  input:hover ~ button {
     border-color: #787878;
   }
   input,
@@ -274,11 +259,6 @@ const InputControlStyle = styled.div`
     outline: none;
   }
 `;
-
-export const InputControl = ({ children }) => (
-  <InputControlStyle>{children}</InputControlStyle>
-);
-
 const InputStyle = styled.input`
   line-height: normal;
   margin: 0;
@@ -354,7 +334,6 @@ const InputStyle = styled.input`
       border-color: ${({ theme }) => theme.colors.yellow};
     `}
 `;
-
 const TextareaStyle = styled.textarea`
   overflow: auto;
   vertical-align: top;
@@ -362,29 +341,11 @@ const TextareaStyle = styled.textarea`
   font-size: 100%;
   vertical-align: middle;
 `;
-
 const SelectStyle = styled.select`
   margin: 0;
   font-size: 100%;
   vertical-align: middle;
 `;
-
-export const Input = ({ ...args }) => <InputStyle {...args} />;
-export const Textarea = ({ ...args }) => <TextareaStyle {...args} />;
-export const Select = ({ children, ...args }) => (
-  <SelectStyle {...args}>{children}</SelectStyle>
-);
-
-export const PaginationWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: ${({ page }) => {
-    if (page === "first") return "flex-end";
-    else if (page === "middle") return "space-between";
-    else return "flex-start";
-  }};
-`;
-
 const LinkItemStyle = styled.a`
   display: block;
   line-height: inherit;
@@ -410,13 +371,38 @@ const LinkItemStyle = styled.a`
       font-size: ${({ theme }) => theme.fontSizes.medium};
       color: rgba(117, 117, 117, 1);
 
-      border-radius:2px;
-      &:hover{
-        border-color:${({ theme }) => theme.colors.gray};
+      border-radius: 2px;
+      &:hover {
+        border-color: ${({ theme }) => theme.colors.gray};
       }
     `}
 `;
-
+export const Username = ({ username }) => (
+  <UsernameStyle>#{username}</UsernameStyle>
+);
+export const Button = ({ children, ...rest }) => (
+  <StyledButton {...rest}>{children}</StyledButton>
+);
+export const Span = ({ children, ...args }) => (
+  <SpanStyle {...args}>{children}</SpanStyle>
+);
+export const InputControl = ({ children }) => (
+  <InputControlStyle>{children}</InputControlStyle>
+);
+export const Input = ({ ...args }) => <InputStyle {...args} />;
+export const Textarea = ({ ...args }) => <TextareaStyle {...args} />;
+export const Select = ({ children, ...args }) => (
+  <SelectStyle {...args}>{children}</SelectStyle>
+);
+export const PaginationWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: ${({ page }) => {
+    if (page === "first") return "flex-end";
+    else if (page === "middle") return "space-between";
+    else return "flex-start";
+  }};
+`;
 export const LinkItem = ({ children, ...args }) => (
   <LinkItemStyle {...args}>{children}</LinkItemStyle>
 );

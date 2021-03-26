@@ -1,12 +1,9 @@
 import React from "react";
-import styled from "styled-components"
+import styled from "styled-components";
 
-const login = ({className,children})=>(
-    <section className={className}>
-        {children}
-    </section>
+const login = ({ className, children }) => (
+  <section className={className}>{children}</section>
 );
-
 const SpanTitle = styled.span`
   -webkit-transform: scale(0.83333) translateY(-10px);
   transform: scale(0.83333) translateY(-10px);
@@ -29,7 +26,6 @@ const SpanTitle = styled.span`
   user-select: none;
   white-space: nowrap;
 `;
-
 const ipt = ({ className, change, val, name, type }) => (
   <input
     className={className}
@@ -41,7 +37,6 @@ const ipt = ({ className, change, val, name, type }) => (
     id={val}
   />
 );
-
 const InputContent = styled(ipt)`
   font-size: 12px;
   padding: 14px 0 2px 8px !important;
@@ -55,23 +50,20 @@ const InputContent = styled(ipt)`
   padding: 9px 0 7px 8px;
   text-overflow: ellipsis;
 `;
-
 const group = ({ className, children, title, ...rest }) => (
-    <div className={className}>
-      <LabelInput {...rest}>
-        <SpanTitle>{title}</SpanTitle>
-        {children}
-      </LabelInput>
-    </div>
-  );
-
+  <div className={className}>
+    <LabelInput {...rest}>
+      <SpanTitle>{title}</SpanTitle>
+      {children}
+    </LabelInput>
+  </div>
+);
 const label = ({ className, children, val, ...rest }) => (
   <label htmlFor={val} className={className}>
     {children}
     <InputContent val={val} {...rest} />
   </label>
 );
-
 const LabelInput = styled(label)`
   display: flex;
   height: 36px;
@@ -81,49 +73,47 @@ const LabelInput = styled(label)`
   margin: 0;
   min-width: 0;
 `;
-
 export const GroupForm = styled(group)`
-border: 1px solid #cecece;
-align-items: center;
--webkit-appearance: none;
-background: #fafafa;
-border: 1px solid #dbdbdb;
-border-radius: 3px;
--webkit-box-sizing: border-box;
-box-sizing: border-box;
-color: #262626;
-display: flex;
-flex-direction: row;
-font-size: 14px;
-position: relative;
-width: 100%;
-margin: 10px 5px;
+  border: 1px solid #cecece;
+  align-items: center;
+  -webkit-appearance: none;
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #262626;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  margin: 10px 5px;
 `;
-
 export const LoginWrapper = styled(login)`
-    width: auto;
-    padding-top: 50px;
+  width: auto;
+  padding-top: 50px;
 
-    h1{
-        text-align: center;
-        letter-spacing: -1px;
-    }
+  h1 {
+    text-align: center;
+    letter-spacing: -1px;
+  }
 
-    form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        margin: 70px 30%;
-        height: max-content;
-        width: 255px;
-        color:${({theme})=> theme.colors.text};
-        background: ${({theme})=> theme.colors.light};
-        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.17);
-        border-radius:5px;
-    }
-    button{
-        margin-right:0;
-        margin-left:0;
-    }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 70px 30%;
+    height: max-content;
+    width: 255px;
+    color: ${({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colors.light};
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.17);
+    border-radius: 5px;
+  }
+  button {
+    margin-right: 0;
+    margin-left: 0;
+  }
 `;

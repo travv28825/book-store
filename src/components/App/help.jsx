@@ -1,4 +1,5 @@
 import React from "react";
+import styled, { css } from "styled-components";
 import {
   InputControl,
   Button,
@@ -7,12 +8,7 @@ import {
   Select,
   Span,
 } from "../../theming";
-import styled, { css } from "styled-components";
 
-const ButtonAnimationStyle = styled(Button)``;
-export const ButtonAnimation = ({ children }) => (
-  <ButtonAnimationStyle>{children}</ButtonAnimationStyle>
-);
 export const Code = styled.div`
   background-color: #eeeeee;
   border: 0 !important;
@@ -62,7 +58,6 @@ export const Wrapper = styled.div`
     margin: 0.3rem;
   }
 `;
-
 export const Palete = styled.div`
   width: 110px;
   height: 90px;
@@ -231,7 +226,6 @@ export const WrapperPalete = styled.div`
 export const buttons =
   "<Button>Something!</Button>\n<Button primary>Primary</Button>\n<Button info>Info</Button>\n<Button success>Success</Button>\n<Button danger>Danger</Button>\n<Button warning>Warning</Button>\n<Button loading_pulse>Download NOW</Button>\n<Button loading_cube>Loading</Button>";
 export const inputsa = `<InputControl>\n<Input />\n</InputControl>\n<InputControl>\n<Input disabled value="input disabled" />\n</InputControl>\n<InputControl>\n<Textarea></Textarea>\n</InputControl>`;
-
 export const Help = () => (
   <div>
     {/* BUTTONS */}
