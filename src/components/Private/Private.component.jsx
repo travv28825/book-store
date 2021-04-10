@@ -4,7 +4,6 @@ import { useAuth } from "../../providers/Auth";
 
 const Private = ({ children, ...rest }) => {
   const { authenticated } = useAuth();
-
   return (
     <Route
       {...rest}
