@@ -116,7 +116,7 @@ export const LoginWrapper = styled(login)`
     height: max-content;
     width: 255px;
     color: ${({ theme }) => theme.colors.text};
-    background: ${({ theme }) => theme.colors.light};
+    background: ${({ theme }) => theme.colors.red};
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.17);
     border-radius: 5px;
   }

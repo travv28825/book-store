@@ -71,10 +71,12 @@ function AuthProvider(props) {
       const data = text && JSON.parse(text);
       if (data.success === false) {
         logout();
+        return;
       }
       if (!response.ok) {
         if (response.status === 401) {
           logout();
+          return;
         }
         const error = (data && data.message) || response.statusText;
         return Promise.reject(error);

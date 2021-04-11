@@ -1,8 +1,5 @@
 export * from "./global.theme";
-// components
-export * from "./_components/fileManager.theme";
-export * from "./_components/header.theme";
-export * from "./_components/layout.theme";
-// pages
-export * from "./_pages/home.theme";
-export * from "./_pages/login.theme";
+export * from "./components/Header.theme";
+export * from "./components/Layout.theme";
+export * from "./pages/Home.theme";
+export * from "./pages/Login.theme";

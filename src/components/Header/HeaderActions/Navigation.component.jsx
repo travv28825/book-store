@@ -6,23 +6,26 @@ import { MenuHeader, LinkItem } from "../../../theming";
 const Navigation = () => {
   
   const history = useHistory();
-  const hanldeClickLink = (event, path) => {
-    event.preventDefault();
-    history.push(path);
+  const navigateTo = (path) => {
+    return function handleEvent(event) {
+      event.preventDefault();
+      history.push(path)
+    }
   };
+  
 
   return (
     <MenuHeader>
-      <LinkItem onClick={(event) => hanldeClickLink(event, "/")} href="/">
+      <LinkItem onClick={navigateTo("/")} href="/">
         <p>Inicio</p>
       </LinkItem>
-      <LinkItem onClick={(event) => hanldeClickLink(event, "/books")} href="/doc">
+      <LinkItem onClick={navigateTo("/books")} href="/doc">
         <p>Documentos</p>
       </LinkItem>
-      <LinkItem onClick={(event) => hanldeClickLink(event, "/images")} href="/images">
+      <LinkItem onClick={navigateTo("/images")} href="/images">
         <p>Imagenes</p>
       </LinkItem>
-      <LinkItem onClick={(event) => hanldeClickLink(event, "/videos")} href="/videos">
+      <LinkItem onClick={navigateTo("/videos")} href="/videos">
         <p>Videos</p>
       </LinkItem>
     </MenuHeader>
