@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useReducer } from "react";
 
-import {
-  AUTH_STORAGE_JWT,
-  USER_DATA_KEY,
-  BACKEND_URL,
-} from "../../utils/constants";
+import { USER_DATA_KEY } from "../../utils/constants";
 import { storage } from "../../utils/storage";
+import { initialState, AuthReducer } from "./reducer";
 
 const AuthContext = React.createContext(null);
+const AuthDispatchContext = React.createContext();
 
 const useAuth = () => {
   const context = useContext(AuthContext);
@@ -16,70 +14,25 @@ const useAuth = () => {
   }
   return context;
 };
+const useAuthDispatch = () => {
+  const context = React.useContext(AuthDispatchContext);
+  if (context === undefined) {
+    throw new Error("useAuthDispatch must be used within a AuthProvider");
+  }
 
-function AuthProvider(props) {
-  const [authenticated, setAuthenticated] = useState(true);
-
-  useEffect(() => {
-    const lastAuthState = storage.get(USER_DATA_KEY);
-    const isAuthtenticated = Boolean(lastAuthState);
-    setAuthenticated(isAuthtenticated);
-  }, []);
-
-  const login = async (data) => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-    let response = await fetch(`${BACKEND_URL}/authenticate`, requestOptions);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    } else {
-      let { success, token } = await response.json();
-      if (success) {
-        storage.set(AUTH_STORAGE_JWT, token);
-        storage.set(USER_DATA_KEY, success);
-        setAuthenticated(true);
-      }else{
-        console.log('authentication fail')
-      }
-    }
-  };
-
-  const register = async (data) => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-    let response = await fetch(`${BACKEND_URL}/register`, requestOptions);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    } else {
-      let { success } = await response.json();
-      if (success) {
-        console.log("registration success");
-      }else{
-        console.log('registration fail')
-      }
-    }
-  };
-
-  const logout = () => {
-    storage.clear();
-    setAuthenticated(false);
-  };
+  return context;
+};
+const AuthProvider = ({ children }) => {
+  const [authState, dispatch] = useReducer(AuthReducer, initialState);
 
   return (
-    <AuthContext.Provider
-      value={{ authenticated, login, logout, register }}
-      {...props}
-    />
+    <AuthContext.Provider value={authState}>
+      <AuthDispatchContext.Provider value={dispatch}>
+        {children}
+      </AuthDispatchContext.Provider>
+    </AuthContext.Provider>
   );
-}
+};
 
-export { useAuth };
+export { useAuth, useAuthDispatch };
 export default AuthProvider;

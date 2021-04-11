@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 
-import { useAuth } from "../../providers/Auth";
+import { useAuth, useAuthDispatch, login } from "../../providers/Auth";
 import {
   LoginWrapper,
   GroupForm,
@@ -15,48 +15,66 @@ const initialCredentials = {
 };
 
 const LoginPage = () => {
-  const { login,register } = useAuth();
-  const history = useHistory();
   const [credentials, setCredentials] = useState(initialCredentials);
-
-  const handleLogin = async (event)=>{
-    event.preventDefault();
-    await login(credentials);
-    history.push('/');
-  }
-  const handleSingUp = async (event)=>{
-    event.preventDefault();
-    await register({username:'asd'});
-    history.push('/login');
-  }
+  const { loading, errorMessage } = useAuth();
+  const dispatch = useAuthDispatch();
+  const history = useHistory();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setCredentials({ ...credentials, [name]: value });
   };
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    try {
+      let response = await login(dispatch, credentials);
+      if (!response.user) return;
+      history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleSingUp = async (event) => {
+    event.preventDefault();
+    await register({ username: "asd" });
+    history.push("/login");
+  };
 
   return (
     <LoginWrapper>
+      <p>{errorMessage && `Error::  ${errorMessage}`}</p>
       <form>
-        <h1>Welcome to my dream!</h1>
+        <h1>Welcome!</h1>
         <GroupForm
-          change={handleChange}
-          val={credentials.username}
+          onChange={handleChange}
+          value={credentials.username}
           name="username"
           title="Username, phone number or email"
+          disabled={loading}
         />
         <GroupForm
-          change={handleChange}
-          val={credentials.password}
+          onChange={handleChange}
+          value={credentials.password}
           name="password"
           type="password"
           title="Password"
+          disabled={loading}
         />
         <PaginationWrapper page="middle">
-          <Button primary type="submit" onClick={handleLogin}>
-            Sing in
+          <Button
+            disabled={loading}
+            primary="true"
+            type="submit"
+            onClick={handleLogin}
+          >
+            Login
           </Button>
-          <Button primary type="submit" onClick={handleSingUp}>
+          <Button
+            disabled={loading}
+            primary="true"
+            type="submit"
+            onClick={handleSingUp}
+          >
             Sing up
           </Button>
         </PaginationWrapper>

@@ -3,14 +3,19 @@ import { Route, Redirect } from "react-router-dom";
 
 import { useAuth } from "../../providers/Auth";
 
-const Private = ({ children, ...rest }) => {
+const Private = ({ component: Component, path, isPrivate, ...rest }) => {
+  const userState = useAuth();
 
-  const { authenticated } = useAuth();
-  
   return (
     <Route
       {...rest}
-      render={() => (authenticated ? children : <Redirect to="/login" />)}
+      render={(props) =>
+        isPrivate && !Boolean(userState.authenticated) ? (
+          <Redirect to={{ pathname: "/login" }} />
+        ) : (
+          <Component {...props} />
+        )
+      }
     />
   );
 };

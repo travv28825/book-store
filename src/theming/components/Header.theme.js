@@ -1,16 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const HeaderStyle = styled.header`
-  width: 100%;
-  height: 150px;
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  background: ${({ theme }) => theme.colors.main};
-`;
 
 const MenuStyle = styled.ul`
   flex: 1;
@@ -24,7 +14,6 @@ const MenuStyle = styled.ul`
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
   border-top: 1px solid ${({ theme }) => theme.colors.gray};
 `;
-
 const ItemMenu = styled.li`
   line-height: 45px;
   position: relative;
@@ -44,9 +33,16 @@ export const WrapperHeader = styled.div`
     position: relative;
   }
 `;
-
-export const Header = ({ children }) => <HeaderStyle>{children}</HeaderStyle>;
-
+export const Header = styled.header`
+  width: 100%;
+  height: 150px;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  background: ${({ theme }) => theme.colors.main};
+`;
 export const Logo = styled.div`
   flex: 1;
   h1 {
@@ -54,7 +50,6 @@ export const Logo = styled.div`
     color: ${({ theme }) => theme.colors.darkred};
   }
 `;
-
 export const MenuHeader = ({ children }) => {
   const subItems = (
     <MenuStyle>
@@ -65,3 +60,6 @@ export const MenuHeader = ({ children }) => {
   );
   return subItems;
 };
+export const UserActions = styled.div`
+  margin: 0 15px;
+`;

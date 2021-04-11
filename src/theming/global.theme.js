@@ -263,6 +263,12 @@ export const Button = styled.button`
   margin: 0.15625rem 0;
   position: relative;
 
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: #ffffff;
+    `}
+
   ${({ loading_pulse }) =>
     loading_pulse &&
     css`
@@ -324,6 +330,12 @@ export const Button = styled.button`
         background-color: ${({ theme }) => theme.colors.darkblue};
         border-color: #204d74;
       }
+    `}
+    ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${({ theme }) => theme.colors.gray};
+      cursor: default;
     `}
   ${({ info }) =>
     info &&

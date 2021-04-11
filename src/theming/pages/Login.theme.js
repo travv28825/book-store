@@ -4,8 +4,7 @@ import styled from "styled-components";
 const login = ({ className, children }) => (
   <section className={className}>{children}</section>
 );
-
-const SpanTitle = styled.span`
+const SpanStyle = styled.span`
   -webkit-transform: scale(0.83333) translateY(-10px);
   transform: scale(0.83333) translateY(-10px);
   color: #8e8e8e;
@@ -27,20 +26,16 @@ const SpanTitle = styled.span`
   user-select: none;
   white-space: nowrap;
 `;
-
-const ipt = ({ className, change, val, name, type }) => (
-  <input
-    className={className}
-    required
-    onChange={change}
-    value={val}
-    name={name}
-    type={type || "text"}
-    id={val}
-  />
-);
-
-const InputContent = styled(ipt)`
+const LabelStyle = styled.label`
+  display: flex;
+  height: 36px;
+  flex: 1 0 0;
+  padding: 0;
+  position: relative;
+  margin: 0;
+  min-width: 0;
+`;
+const InputStyle = styled.input`
   font-size: 12px;
   padding: 14px 0 2px 8px !important;
   background: #fafafa;
@@ -53,34 +48,17 @@ const InputContent = styled(ipt)`
   padding: 9px 0 7px 8px;
   text-overflow: ellipsis;
 `;
-
-const group = ({ className, children, title, ...rest }) => (
+const Form = ({ className, children, title, ...rest }) => (
   <div className={className}>
-    <LabelInput {...rest}>
-      <SpanTitle>{title}</SpanTitle>
+    <LabelStyle {...rest}>
+      <SpanStyle>{title}</SpanStyle>
       {children}
-    </LabelInput>
+      <InputStyle {...rest} />
+    </LabelStyle>
   </div>
 );
 
-const label = ({ className, children, val, ...rest }) => (
-  <label htmlFor={val} className={className}>
-    {children}
-    <InputContent val={val} {...rest} />
-  </label>
-);
-
-const LabelInput = styled(label)`
-  display: flex;
-  height: 36px;
-  flex: 1 0 0;
-  padding: 0;
-  position: relative;
-  margin: 0;
-  min-width: 0;
-`;
-
-export const GroupForm = styled(group)`
+export const GroupForm = styled(Form)`
   border: 1px solid #cecece;
   align-items: center;
   -webkit-appearance: none;
@@ -97,7 +75,6 @@ export const GroupForm = styled(group)`
   width: 100%;
   margin: 10px 5px;
 `;
-
 export const LoginWrapper = styled(login)`
   width: auto;
   padding-top: 50px;
@@ -116,7 +93,7 @@ export const LoginWrapper = styled(login)`
     height: max-content;
     width: 255px;
     color: ${({ theme }) => theme.colors.text};
-    background: ${({ theme }) => theme.colors.red};
+    background: ${({ theme }) => theme.colors.main};
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.17);
     border-radius: 5px;
   }
