@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+
 import { useAuth } from "../../providers/Auth";
 import {
   LoginWrapper,
@@ -7,6 +8,7 @@ import {
   Button,
   PaginationWrapper,
 } from "../../theming";
+
 const initialCredentials = {
   username: "",
   password: "",
