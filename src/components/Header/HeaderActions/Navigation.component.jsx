@@ -1,8 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router";
+
 import { MenuHeader, LinkItem } from "../../../theming";
 
-export const Navigation = () => {
+const Navigation = () => {
+  
   const history = useHistory();
   const hanldeClickLink = (event, path) => {
     event.preventDefault();
@@ -26,3 +28,5 @@ export const Navigation = () => {
     </MenuHeader>
   );
 };
+
+export default Navigation;

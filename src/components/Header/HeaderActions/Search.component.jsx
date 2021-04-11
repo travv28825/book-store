@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+
 import { Input, InputControl, Span, Button } from "../../../theming";
 
-export const SearchForm = () => {
-  const [search, setSearch] = useState("");
+const SearchForm = () => {
 
+  const [search, setSearch] = useState("");
   const handleChange = (event) => {
     const { value } = event.target;
     setSearch(value);
   };
-
   const searchFile = () => {
     console.log(search);
   };
@@ -22,3 +22,5 @@ export const SearchForm = () => {
     </InputControl>
   );
 };
+
+export default SearchForm;

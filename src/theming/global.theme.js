@@ -221,7 +221,7 @@ const LinkItemStyle = styled.a`
   cursor: pointer;
   font-family: initial;
   font-size: ${({ theme }) => theme.fontSizes.large};
-  transition: color 0.4s ease 0s;
+  transition: color 0.2s ease 0s;
   color: ${({ theme }) => theme.colors.text};
 
   &:hover {

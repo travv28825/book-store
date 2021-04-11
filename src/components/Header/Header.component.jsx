@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Navigation, SearchForm } from "./HeaderActions";
+import Navigation from './HeaderActions/Navigation.component'
+import SearchForm from './HeaderActions/Search.component'
 import { Header, WrapperHeader, Logo } from "../../theming";
 
 const HeaderComponent = () => (
