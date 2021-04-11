@@ -1,4 +1,5 @@
 # dependencies
 /node_modules
-#configuration file of IDE
+
+# configuration file of IDE
 /.vscode

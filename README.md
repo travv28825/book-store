@@ -1,10 +1,10 @@
 # Book Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).It is a minimal idea on how to improve your [React](http://reactjs.org) skills, we'll focus on creating a file manager.
+This project is a minimal idea on how to improve your [React](http://reactjs.org) skills, we'll focus on creating a file manager using good practices, [react hooks](https://reactjs.org/docs/hooks-intro.html), functional components and more
 
 ## Installation
 
-Use the package manager [npm](https://pip.pypa.io/en/stable/) to install all dependecies.
+Use the package manager [npm](https://docs.npmjs.com/) to install all dependecies.
 
 ```bash
 npm install 
