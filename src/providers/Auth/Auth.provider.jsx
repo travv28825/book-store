@@ -67,7 +67,7 @@ function AuthProvider(props) {
   };
 
   const handleResponse = (response) => {
-    return response.text().then((text) => {
+    return response.json().then((text) => {
       const data = text && JSON.parse(text);
       if (data.success === false) {
         logout();
