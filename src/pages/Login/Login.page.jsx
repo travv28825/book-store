@@ -15,16 +15,20 @@ const initialCredentials = {
 };
 
 const LoginPage = () => {
-  const { login } = useAuth();
+  const { login,register } = useAuth();
   const history = useHistory();
   const [credentials, setCredentials] = useState(initialCredentials);
 
-  const handleSubmit = (event) => {
+  const handleLogin = async (event)=>{
     event.preventDefault();
-    login(credentials).then(() => {
-      history.push("/");
-    });
-  };
+    await login(credentials);
+    history.push('/');
+  }
+  const handleSingUp = async (event)=>{
+    event.preventDefault();
+    await register({username:'asd'});
+    history.push('/login');
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,7 +37,7 @@ const LoginPage = () => {
 
   return (
     <LoginWrapper>
-      <form onSubmit={handleSubmit}>
+      <form>
         <h1>Welcome to my dream!</h1>
         <GroupForm
           change={handleChange}
@@ -49,10 +53,10 @@ const LoginPage = () => {
           title="Password"
         />
         <PaginationWrapper page="middle">
-          <Button primary type="submit">
-            Login
+          <Button primary type="submit" onClick={handleLogin}>
+            Sing in
           </Button>
-          <Button primary type="submit">
+          <Button primary type="submit" onClick={handleSingUp}>
             Sing up
           </Button>
         </PaginationWrapper>

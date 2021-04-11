@@ -26,63 +26,51 @@ function AuthProvider(props) {
     setAuthenticated(isAuthtenticated);
   }, []);
 
-  const login = (data) => {
-    console.log("to login");
+  const login = async (data) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
+    let response = await fetch(`${BACKEND_URL}/authenticate`, requestOptions);
 
-    return fetch(`${BACKEND_URL}/authenticate`, requestOptions)
-      .then(handleResponse)
-      .then(({ success, token, user }) => {
-        if (success) {
-          storage.set(AUTH_STORAGE_JWT, token);
-          storage.set(USER_DATA_KEY, true);
-          setAuthenticated(true);
-        }
-      });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      let { success, token } = await response.json();
+      if (success) {
+        storage.set(AUTH_STORAGE_JWT, token);
+        storage.set(USER_DATA_KEY, success);
+        setAuthenticated(true);
+      }else{
+        console.log('authentication fail')
+      }
+    }
   };
 
-  const register = (data) => {
+  const register = async (data) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
+    let response = await fetch(`${BACKEND_URL}/register`, requestOptions);
 
-    return fetch(`${BACKEND_URL}/register`, requestOptions)
-      .then(handleResponse)
-      .then(({ success }) => {
-        if (success) {
-          console.log("then:: ", success);
-        }
-      });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      let { success } = await response.json();
+      if (success) {
+        console.log("registration success");
+      }else{
+        console.log('registration fail')
+      }
+    }
   };
 
   const logout = () => {
     storage.clear();
     setAuthenticated(false);
-  };
-
-  const handleResponse = (response) => {
-    return response.json().then((text) => {
-      const data = text && JSON.parse(text);
-      if (data.success === false) {
-        logout();
-        return;
-      }
-      if (!response.ok) {
-        if (response.status === 401) {
-          logout();
-          return;
-        }
-        const error = (data && data.message) || response.statusText;
-        return Promise.reject(error);
-      }
-      return data;
-    });
   };
 
   return (
