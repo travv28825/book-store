@@ -1,13 +1,7 @@
 import React from "react";
 
-import Header from "../../components/Header";
 import "./Layout.style.css";
 
-const Layout = ({ children }) => (
-  <>
-    <Header />
-    <main className="main">{children}</main>
-  </>
-);
+const Layout = ({ children }) => <main className="main">{children}</main>;
 
 export default Layout;
