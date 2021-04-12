@@ -3,7 +3,7 @@ import { BrowserRouter, Switch } from "react-router-dom";
 
 import AuthProvider from "../../providers/Auth";
 import Private from "../Private";
-import { Layout } from "../../theming";
+import Layout from "../Layout";
 import routes from "./routes";
 
 const App = () => (

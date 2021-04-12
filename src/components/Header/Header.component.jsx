@@ -1,20 +1,18 @@
 import React from "react";
 
-import Navigation from './HeaderActions/Navigation.component';
-import SearchForm from './HeaderActions/Search.component';
-import UserAction from './UserActions';
-import { Header, WrapperHeader, Logo } from "../../theming";
+import SearchForm from "./HeaderActions/Search.component";
+import MenuNav from "./HeaderActions/Navigation.component";
+import UserAction from "./UserActions";
+import { Header, Nav, Logo } from "../../theming";
 
 const HeaderComponent = () => (
   <Header>
-    <WrapperHeader>
-      <Logo>
-        <h1>BiblioFAR</h1>
-      </Logo>
+    <Nav>
+      <Logo>BiblioFAR</Logo>
       <SearchForm />
-      <UserAction/>
-    </WrapperHeader>
-    <Navigation />
+      <MenuNav />
+    </Nav>
+    <UserAction />
   </Header>
 );
 

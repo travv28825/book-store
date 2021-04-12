@@ -1,65 +1,57 @@
-import React from "react";
 import styled from "styled-components";
 
-
-const MenuStyle = styled.ul`
-  flex: 1;
+export const Header = styled.header`
   display: flex;
   flex-direction: row;
-  padding: 0.5rem 24px;
-  white-space: nowrap;
-  width: 90%;
-  margin-left: 5%;
-  height: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
-  border-top: 1px solid ${({ theme }) => theme.colors.gray};
-`;
-const ItemMenu = styled.li`
-  line-height: 45px;
-  position: relative;
-  margin: 0 1rem;
-`;
-
-export const WrapperHeader = styled.div`
-  flex: 1;
-  position: relative;
-  display: flex;
-  padding: 5px 25px;
   align-items: center;
-
-  input {
-    margin-right: 4%;
-    width: 250px;
-    position: relative;
-  }
-`;
-export const Header = styled.header`
-  width: 100%;
-  height: 150px;
-  z-index: 1;
+  justify-content: space-between;
   position: fixed;
-  top: 0;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  top: 0px;
+  height: 3.8rem;
+  z-index: 4;
   background: ${({ theme }) => theme.colors.main};
+  border-bottom: 1px solid #cecece;
 `;
-export const Logo = styled.div`
+export const Nav = styled.nav`
   flex: 1;
-  h1 {
-    font-size: 2.5rem;
-    color: ${({ theme }) => theme.colors.darkred};
-  }
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px auto;
 `;
-export const MenuHeader = ({ children }) => {
-  const subItems = (
-    <MenuStyle>
-      {children.map((e, i) => (
-        <ItemMenu key={i}>{e}</ItemMenu>
-      ))}
-    </MenuStyle>
-  );
-  return subItems;
-};
+export const Logo = styled.a`
+  padding: 1rem;
+  float: left;
+  color: ${({ theme }) => theme.colors.darkred};
+`;
+export const SearchControl = styled.div`
+  padding: 0.5rem;
+  float: left;
+`;
 export const UserActions = styled.div`
   margin: 0 15px;
+`;
+export const Navigation = styled.ul`
+  display:flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  float:left;
+
+  li{
+    margin:0 0.3rem;
+    padding:0.1rem;
+
+    &:hover{
+      border-bottom:1px solid ${({ theme }) => theme.colors.blue};
+    }
+  }
+  a {
+    transition: color 0.2s ease 0s;
+    color: ${({ theme }) => theme.colors.text};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.blue};
+    }
+  }
 `;

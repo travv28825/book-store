@@ -1,35 +1,42 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 
-import { MenuHeader, LinkItem } from "../../../theming";
+import { Navigation } from "../../../theming";
 
-const Navigation = () => {
-  
+const MenuNav = () => {
   const history = useHistory();
   const navigateTo = (path) => {
     return function handleEvent(event) {
       event.preventDefault();
-      history.push(path)
-    }
+      history.push(path);
+    };
   };
-  
 
   return (
-    <MenuHeader>
-      <LinkItem onClick={navigateTo("/")} href="/">
-        <p>Inicio</p>
-      </LinkItem>
-      <LinkItem onClick={navigateTo("/books")} href="/doc">
-        <p>Documentos</p>
-      </LinkItem>
-      <LinkItem onClick={navigateTo("/images")} href="/images">
-        <p>Imagenes</p>
-      </LinkItem>
-      <LinkItem onClick={navigateTo("/videos")} href="/videos">
-        <p>Videos</p>
-      </LinkItem>
-    </MenuHeader>
+    <Navigation>
+      <li>
+        <Link onClick={navigateTo("/")} to="/">
+          <p>Inicio</p>
+        </Link>
+      </li>
+      <li>
+        <Link onClick={navigateTo("/images")} to="/">
+          <p>Images</p>
+        </Link>
+      </li>
+      <li>
+        <Link onClick={navigateTo("/doc")} to="/">
+          <p>Documents</p>
+        </Link>
+      </li>
+      <li>
+        <Link onClick={navigateTo("/vides")} to="/">
+          <p>Videos</p>
+        </Link>
+      </li>
+    </Navigation>
   );
 };
 
-export default Navigation;
+export default MenuNav;
