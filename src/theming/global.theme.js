@@ -228,7 +228,17 @@ export const Button = styled.button`
     css`
       background-color: #ffffff;
     `}
-
+  ${({ no_border }) =>
+    no_border &&
+    css`
+      border: 1px solid transparent;
+      margin-rigth: 0.5rem;
+    `}
+    ${({ btn_block }) =>
+    btn_block &&
+    css`
+      width:100%;
+    `}
   ${({ loading_pulse }) =>
     loading_pulse &&
     css`
@@ -340,6 +350,15 @@ export const Button = styled.button`
         background-color: ${({ theme }) => theme.colors.darkyellow};
       }
     `}
+    ${({ button_in_input }) =>
+    button_in_input &&
+    css`
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      margin: 0;
+    `}
   &:hover {
     cursor: pointer;
     border-color: #787878;
@@ -352,15 +371,6 @@ export const Button = styled.button`
   &:focus {
     outline: 0;
   }
-  ${({ button_in_input }) =>
-    button_in_input &&
-    css`
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 2;
-      margin: 0;
-    `}
 `;
 export const Span = ({ children, ...args }) => (
   <SpanStyle {...args}>{children}</SpanStyle>

@@ -14,9 +14,13 @@ const SearchForm = () => {
     const { value } = event.target;
     setSearch(value);
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("handle search");
+  };
 
   return (
-    <SearchControl>
+    <SearchControl onSubmit={handleSubmit}>
       <InputControl>
         <Input value={search} onChange={handleChange} />
         <Button button_in_input>

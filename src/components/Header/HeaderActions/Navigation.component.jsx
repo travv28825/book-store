@@ -17,7 +17,7 @@ const MenuNav = () => {
     <Navigation>
       <li>
         <Link onClick={navigateTo("/")} to="/">
-          <p>Inicio</p>
+          <p>Home</p>
         </Link>
       </li>
       <li>
@@ -31,7 +31,7 @@ const MenuNav = () => {
         </Link>
       </li>
       <li>
-        <Link onClick={navigateTo("/vides")} to="/">
+        <Link onClick={navigateTo("/videos")} to="/">
           <p>Videos</p>
         </Link>
       </li>

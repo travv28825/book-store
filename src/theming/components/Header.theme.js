@@ -14,36 +14,51 @@ export const Header = styled.header`
   border-bottom: 1px solid #cecece;
 `;
 export const Nav = styled.nav`
-  flex: 1;
+  flex: 3;
   align-items: center;
   justify-content: space-between;
   margin: 0px auto;
 `;
 export const Logo = styled.a`
+  font-size: 1.5rem;
   padding: 1rem;
   float: left;
-  color: ${({ theme }) => theme.colors.darkred};
+  color: black;
+  cursor:pointer;
+
+  span {
+    color: ${({ theme }) => theme.colors.blue};
+  }
 `;
-export const SearchControl = styled.div`
+export const SearchControl = styled.form`
   padding: 0.5rem;
   float: left;
 `;
 export const UserActions = styled.div`
-  margin: 0 15px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px auto;
+  flex: 1;
+  height: 100%;
+  padding: 0.5rem;
+
+  .form-sing-in {
+  }
 `;
 export const Navigation = styled.ul`
-  display:flex;
+  display: flex;
   padding: 1rem;
   align-items: center;
   justify-content: space-between;
-  float:left;
+  float: left;
 
-  li{
-    margin:0 0.3rem;
-    padding:0.1rem;
+  li {
+    margin: 0 0.3rem;
+    border: 1px solid transparent;
+    padding-bottom:0.1rem;
 
-    &:hover{
-      border-bottom:1px solid ${({ theme }) => theme.colors.blue};
+    &:hover {
+      border-bottom: 1px solid ${({ theme }) => theme.colors.blue};
     }
   }
   a {

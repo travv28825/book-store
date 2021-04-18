@@ -61,23 +61,19 @@ const LoginPage = () => {
           disabled={loading}
         />
         <PaginationWrapper page="middle">
-          <Button
+          <Button btn_block
             disabled={loading}
             primary="true"
             type="submit"
             onClick={handleLogin}
           >
-            Login
-          </Button>
-          <Button
-            disabled={loading}
-            primary="true"
-            type="submit"
-            onClick={handleSingUp}
-          >
-            Sing up
+            Sing in
           </Button>
         </PaginationWrapper>
+        <p class="to-singup">
+          New to GitHub?
+          <a href="" onClick={handleSingUp}> Create an account</a>.
+        </p>
       </form>
     </LoginWrapper>
   );

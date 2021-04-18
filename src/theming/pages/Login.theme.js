@@ -33,7 +33,6 @@ const LabelStyle = styled.label`
   padding: 0;
   position: relative;
   margin: 0;
-  min-width: 0;
 `;
 const InputStyle = styled.input`
   font-size: 12px;
@@ -73,7 +72,7 @@ export const GroupForm = styled(Form)`
   font-size: 14px;
   position: relative;
   width: 100%;
-  margin: 10px 5px;
+  margin: 10px 0px;
 `;
 export const LoginWrapper = styled(login)`
   width: auto;
@@ -85,13 +84,9 @@ export const LoginWrapper = styled(login)`
   }
 
   form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 20px;
-    margin: 70px 30%;
-    height: max-content;
-    width: 255px;
+    margin: 0 auto;
+    width: 340px;
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.main};
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.17);
@@ -100,5 +95,17 @@ export const LoginWrapper = styled(login)`
   button {
     margin-right: 0;
     margin-left: 0;
+  }
+  .to-singup{
+    margin-top:0.5rem;
+    padding: 2px 10px;
+    text-align: center;
+    border: 1px solid #cecece;
+    border-radius: 6px;
+    font-size: 17px;
+
+    a{
+      color:${({theme}) => theme.colors.blue};
+    }
   }
 `;
