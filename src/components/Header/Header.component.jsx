@@ -8,7 +8,7 @@ import { Header, Nav, Logo } from "../../theming";
 const HeaderComponent = () => (
   <Header>
     <Nav>
-      <Logo>BiblioFAR</Logo>
+      <Logo href="/">Book<span>Store</span></Logo>
       <SearchForm />
       <MenuNav />
     </Nav>
