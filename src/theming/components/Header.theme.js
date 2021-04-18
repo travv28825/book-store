@@ -14,7 +14,11 @@ export const Header = styled.header`
   border-bottom: 1px solid #cecece;
 `;
 export const Nav = styled.nav`
+<<<<<<< HEAD
   flex: 5;
+=======
+  flex: 3;
+>>>>>>> 953d63008e19e7819cb7ad61f3b50f62c2cc70eb
   align-items: center;
   justify-content: space-between;
   margin: 0px auto;
@@ -24,7 +28,11 @@ export const Logo = styled.a`
   padding: 1rem;
   float: left;
   color: black;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+  cursor:pointer;
+>>>>>>> 953d63008e19e7819cb7ad61f3b50f62c2cc70eb
 
   span {
     color: ${({ theme }) => theme.colors.blue};
@@ -55,7 +63,11 @@ export const Navigation = styled.ul`
   li {
     margin: 0 0.3rem;
     border: 1px solid transparent;
+<<<<<<< HEAD
     padding-bottom: 0.1rem;
+=======
+    padding-bottom:0.1rem;
+>>>>>>> 953d63008e19e7819cb7ad61f3b50f62c2cc70eb
 
     &:hover {
       border-bottom: 1px solid ${({ theme }) => theme.colors.blue};
