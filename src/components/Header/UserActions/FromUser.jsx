@@ -15,7 +15,7 @@ const FormSingUp = () => {
         </Link>
       </div>
       <div className="header-item">
-        <Link>{userDetails.username}</Link>
+        <Link to='/profile'>{userDetails.username}</Link>
       </div>
     </FormUser>
   );
