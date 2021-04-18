@@ -1,15 +1,21 @@
 import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  hashHistory,
+} from "react-router-dom";
 
 import AuthProvider from "../../providers/Auth";
+import MainLayout, { EmptyLayout } from "../../components/Layout";
+import Login from "../../pages/Login";
 import Private from "../Private";
-import Layout from "../Layout";
 import routes from "./routes";
 
-const App = () => (
-  <BrowserRouter>
-    <AuthProvider>
-      <Layout>
+const App = () => {
+  return (
+    <Router>
+      <AuthProvider>
         <Switch>
           {routes.map((route) => (
             <Private
@@ -17,13 +23,14 @@ const App = () => (
               key={route.path}
               path={route.path}
               component={route.component}
+              layout={route.layout}
               isPrivate={route.isPrivate}
             />
           ))}
         </Switch>
-      </Layout>
-    </AuthProvider>
-  </BrowserRouter>
-);
+      </AuthProvider>
+    </Router>
+  );
+};
 
 export default App;

@@ -7,11 +7,10 @@ import { FormUser } from "../../../theming";
 
 const FormSingUp = () => {
   const { userDetails } = useAuth();
-
   return (
     <FormUser>
       <div className="header-item">
-        <Link>
+        <Link to='/'>
           <i className="mif-notification"></i>
         </Link>
       </div>

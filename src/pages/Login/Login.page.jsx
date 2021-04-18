@@ -70,7 +70,7 @@ const LoginPage = () => {
             Sing in
           </Button>
         </PaginationWrapper>
-        <p class="to-singup">
+        <p className="to-singup">
           New to GitHub?
           <a href="" onClick={handleSingUp}> Create an account</a>.
         </p>

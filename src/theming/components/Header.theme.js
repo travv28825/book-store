@@ -63,11 +63,7 @@ export const Navigation = styled.ul`
   li {
     margin: 0 0.3rem;
     border: 1px solid transparent;
-<<<<<<< HEAD
-    padding-bottom: 0.1rem;
-=======
     padding-bottom:0.1rem;
->>>>>>> 953d63008e19e7819cb7ad61f3b50f62c2cc70eb
 
     &:hover {
       border-bottom: 1px solid ${({ theme }) => theme.colors.blue};

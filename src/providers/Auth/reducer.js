@@ -7,6 +7,7 @@ let auth = storage.get(USER_DATA_KEY);
 export const initialState = {
   userDetails: user || "",
   loading: false,
+  authenticated: false,
   errorMessage: null,
   authenticated: Boolean(auth) || false,
 };
@@ -21,7 +22,7 @@ export const AuthReducer = (initialState, action) => {
     case "LOGIN_SUCCESS":
       return {
         ...initialState,
-        user: action.payload.username,
+        userDetails: action.payload,
         loading: false,
         authenticated: true,
       };
