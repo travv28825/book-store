@@ -6,8 +6,8 @@ let auth = storage.get(USER_DATA_KEY);
 
 export const initialState = {
   userDetails: user || "",
+  follow:{},
   loading: false,
-  authenticated: false,
   errorMessage: null,
   authenticated: Boolean(auth) || false,
 };
@@ -23,6 +23,7 @@ export const AuthReducer = (initialState, action) => {
       return {
         ...initialState,
         userDetails: action.payload,
+        follow:action.follow,
         loading: false,
         authenticated: true,
       };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 
-import { useAuth, useAuthDispatch, login } from "../../providers/Auth";
+import { useAuth, useAuthDispatch, login,singup } from "../../providers/Auth";
 import {
   LoginWrapper,
   GroupForm,
@@ -34,11 +34,24 @@ const LoginPage = () => {
       console.log(error);
     }
   };
+  // handleLogin.catch(e=>{
+  //   console.error(`Error in handleLogin: ${e}`)
+  // })
   const handleSingUp = async (event) => {
     event.preventDefault();
-    await register({ username: "asd" });
+    const datasend = {
+      username: "travv28825",
+      password:'123',
+      avatar:'/images/default_avatar.png',
+      fullname: "Asney Hidalgo Palmero",
+      email: "asney28825@gmail.com",
+    }
+    await singup(datasend);
     history.push("/login");
   };
+  // handleSingUp.catch(e=>{
+  //   console.error(`Error in handleSingUp: ${e}`)
+  // })
 
   return (
     <LoginWrapper>
